@@ -1,0 +1,8 @@
+/home/miles/Projects/Professional/C#/Gene/bin/Debug/netcoreapp1.1/Gene.deps.json
+/home/miles/Projects/Professional/C#/Gene/bin/Debug/netcoreapp1.1/Gene.runtimeconfig.json
+/home/miles/Projects/Professional/C#/Gene/bin/Debug/netcoreapp1.1/Gene.runtimeconfig.dev.json
+/home/miles/Projects/Professional/C#/Gene/bin/Debug/netcoreapp1.1/Gene.dll
+/home/miles/Projects/Professional/C#/Gene/bin/Debug/netcoreapp1.1/Gene.pdb
+/home/miles/Projects/Professional/C#/Gene/obj/Debug/netcoreapp1.1/Gene.AssemblyInfo.cs
+/home/miles/Projects/Professional/C#/Gene/obj/Debug/netcoreapp1.1/Gene.dll
+/home/miles/Projects/Professional/C#/Gene/obj/Debug/netcoreapp1.1/Gene.pdb
