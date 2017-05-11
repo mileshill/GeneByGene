@@ -1,0 +1,18 @@
+th {
+    cursor: pointer;
+    text-align: center;
+}
+
+td#status, td#barcode, td#fname, td#lname, td {
+    cursor: pointer;
+}
+
+#sampleTable{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.row {
+    margin-top: .5em;
+    margin-bottom: .5em;
+}

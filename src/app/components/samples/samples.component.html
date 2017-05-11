@@ -1,0 +1,55 @@
+<div *ngIf="selectedUser">
+  <app-users [user]="selectedUser"></app-users>
+</div>
+
+<div *ngIf="samples">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Samples</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 float-left">
+      <button class="btn btn-warn">Count: {{samples.length}}</button>
+      <button class="btn btn-warn">Percent Showing: {{ratio() | number:'1.2-2'}} %</button>
+      <button class="btn btn-primary" (click)="resetSamples()">Reset</button>
+
+      <input class="pull-right" type="text" [(ngModel)]="userName" name="userName" (keyup)="userRegexFilter($event)" placeholder="Search Users..." />
+    </div>
+  </div>
+  <div class="row" style="height: 600px !important; overflow:scroll;">
+    <div class="col-md-12">
+      <table class="table table-hover table-bordered" id="sampleTable">
+        <thead class="thead-inverse">
+          <tr>
+            <th>#</th>
+            <th (click)="createdSort()"><i class="fa fa-calendar" aria-hidden="true"></i> CreatedAt</th>
+            <th (click)="barcodeSort()"><i class="fa fa-barcode" aria-hidden="true"></i> Barcode</th>
+            <th (click)="statusSort()"><i class="fa fa-map" aria-hidden="true"></i> Status</th>
+            <th (click)="lastnameSort()" colspan=2><i class="fa fa-user" aria-hidden="true"></i> User (Last, First)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sample of samples; let i=index" [ngClass]="tableClassSelector(sample.status)">
+            <td>{{i + 1}}</td>
+            <td (click)="dateFilter(sample.createdAt)">{{sample.createdAt | date:'yyyy-MM-dd'}}</td>
+            <td id="barcode" (click)="barcodeFilter(sample.barcode)">{{sample.barcode}}</td>
+            <td id="status" (click)="statusFilter(sample.status)">{{sample.status}}</td>
+            <td id="lname" (click)="selectUser(sample)">{{sample.lastName}}</td>
+            <td id="fname" (click)="selectUser(sample)">{{sample.firstName}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  <hr>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <app-addsample></app-addsample>
+      <hr>
+    </div>
+  </div>
+  
+
+</div>

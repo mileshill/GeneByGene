@@ -1,0 +1,30 @@
+<div class="row" *ngIf="user.firstName.length > 0">
+  <div class="col-md-12">
+    <hr>
+    <h2>User Insights</h2>
+    <h4><i class="fa fa-user" aria-hidden="true"></i> {{user.firstName}} {{user.lastName}}</h4>
+    <div *ngIf="samples">
+      <div class="row">
+        <div class="col-md-3">
+          <button class="btn" [ngClass]="tableClassSelector('Report Generation')">Report Generation: {{ statusFilter("Report Generation") }}</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn" [ngClass]="tableClassSelector('Received')">Received: {{ statusFilter("Received") }}</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn" [ngClass]="tableClassSelector('In Lab')">In Lab: {{ statusFilter("In Lab") }}</button>
+        </div>
+        <div class="col-md-3">
+          <button class="btn" [ngClass]="tableClassSelector('Accessioning')">Accessioning: {{ statusFilter("Accessioning")}}</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-warn" (click)="closeUsers()">Close</button>
+      </div>
+
+    </div>
+    <hr>
+  </div>
+</div>
