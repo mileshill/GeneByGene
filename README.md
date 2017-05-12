@@ -1,31 +1,85 @@
-# GeneClinet
+# GeneClient
+[Live Demo](http://ec2-34-223-230-85.us-west-2.compute.amazonaws.com:4200/samples)
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+# Technologies
+- OS: Ubuntu 16.04.2 LTS (Xenial Xerus)
+- .Net Core
+- npm 4.5.0
+- Angular CLI 2.3.1
+- Bootstrap 4
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```shell
+[miles 19:14:23:] Gene $ dotnet --info
+.NET Command Line Tools (1.0.1)
 
-## Code scaffolding
+Product Information:
+ Version:            1.0.1
+ Commit SHA-1 hash:  005db40cd1
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+Runtime Environment:
+ OS Name:     ubuntu
+ OS Version:  16.04
+ OS Platform: Linux
+ RID:         ubuntu.16.04-x64
+ Base Path:   /opt/dotnet/sdk/1.0.1
+```
 
-## Build
+# Building Locally
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Assumes `sqlite3` and `.NET Core` installed.
 
-## Running unit tests
+## Steps
+1. Clone repo and install dependencies
+2. Launch local servers
+3. Open browser to [localhost](http://localhost:4200)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```shell
+# shell-1
+$ git clone https://github.com/mileshill/GeneByGene.git
+$ cd GeneByGene
+$ dotnet restore && dotnet run
+...
+Now listening on http://localhost:5000
+...
 
-## Running end-to-end tests
+#shell-2
+$ cd /path/to/GeneByGene
+$ npm install
+$ ng serve
+...
+** NG Live Development Server is running on http://localhost:4200. **
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+Now open the browser to [localhost](http://localhost:4200). 
 
-## Deploying to GitHub Pages
+# Deploying to Cloud
+1. Update hosts
+2. Adjustment permission to cloud servers (not described here)
+3. Follow local launch commands
 
-Run `ng github-pages:deploy` to deploy to GitHub Pages.
+Update `Program.cs` to run on the desired host and url with the `.UseUrls("http://host:port")` method.
+```csharp
+namespace Gene
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
+                .UseStartup<Startup>()
+                .UseUrls("http://0.0.0.0:5000")
+                .Build();
 
-## Further help
+            host.Run();
+        }
+    }
+}
+```
+Tell angular to launch on new port
+```shell
+$ ng serve --host 0.0.0.0
+```
 
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
