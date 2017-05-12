@@ -1,5 +1,7 @@
 # GeneClient
 [Live Demo](http://ec2-34-223-230-85.us-west-2.compute.amazonaws.com:4200/samples)
+
+<br>
 [API Base URL](http://ec2-34-223-230-85.us-west-2.compute.amazonaws.com:5000/api/values)
 
 # Technologies
