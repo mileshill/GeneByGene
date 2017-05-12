@@ -16,3 +16,8 @@ td#status, td#barcode, td#fname, td#lname, td {
     margin-top: .5em;
     margin-bottom: .5em;
 }
+
+button, input {
+    margin-top: .5em;
+    margin-bottom:.5e;
+}

@@ -1,5 +1,6 @@
 # GeneClient
 [Live Demo](http://ec2-34-223-230-85.us-west-2.compute.amazonaws.com:4200/samples)
+[API Base URL](http://ec2-34-223-230-85.us-west-2.compute.amazonaws.com:5000/api/values)
 
 # Technologies
 - OS: Ubuntu 16.04.2 LTS (Xenial Xerus)
@@ -82,4 +83,54 @@ Tell angular to launch on new port
 ```shell
 $ ng serve --host 0.0.0.0
 ```
+# API
+- GET `/users` : unsorted list of users
+```json
+{
+    UserId:int, 
+    FirstName:string, 
+    LastName:string
+}
+```
 
+- GET `/statuses`: unsorted lists of statuses
+```json
+{
+    StatusId:int, 
+    Status:string
+}
+```
+- GET `/samples/{id:range(-1,3)}`: 
+    - -1: return all samples
+    - 0-3: return samples with StatusId == id
+```json
+{
+    CreatedAt: DateTime,
+    Barcode: string,
+    Status: string,
+    StatusId: int,
+    FirstName: string,
+    LastName: string
+}
+```
+- GET `/users/{chars}` : return samples where user name contains `chars`
+```json
+{
+    CreatedAt: DateTime,
+    Barcode: string,
+    Status: string,
+    StatusId: int,
+    FirstName: string,
+    LastName: string
+}
+```
+
+- POST `/samples`: add sample to database
+```json
+// body
+{
+    Barcode: string,
+    CreatedBy: int,
+    StatusId: int
+}
+```
