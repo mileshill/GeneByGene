@@ -89,17 +89,17 @@ $ ng serve --host 0.0.0.0
 - GET `/users` : unsorted list of users
 ```json
 {
-    UserId:int, 
-    FirstName:string, 
-    LastName:string
+    "UserId":"int", 
+    "FirstName":"string", 
+    "LastName":"string"
 }
 ```
 
 - GET `/statuses`: unsorted lists of statuses
 ```json
 {
-    StatusId:int, 
-    Status:string
+    "StatusId":"int", 
+    "Status":"string"
 }
 ```
 - GET `/samples/{id:range(-1,3)}`: 
@@ -107,23 +107,23 @@ $ ng serve --host 0.0.0.0
     - 0-3: return samples with StatusId == id
 ```json
 {
-    CreatedAt: DateTime,
-    Barcode: string,
-    Status: string,
-    StatusId: int,
-    FirstName: string,
-    LastName: string
+    "CreatedAt": "DateTime",
+    "Barcode": "string",
+    "Status": "string",
+    "StatusId": "int",
+    "FirstName": "string",
+    "LastName": "string"
 }
 ```
 - GET `/users/{chars}` : return samples where user name contains `chars`
 ```json
 {
-    CreatedAt: DateTime,
-    Barcode: string,
-    Status: string,
-    StatusId: int,
-    FirstName: string,
-    LastName: string
+    "CreatedAt": "DateTime",
+    "Barcode": "string",
+    "Status": "string",
+    "StatusId": "int",
+    "FirstName": "string",
+    "LastName": "string"
 }
 ```
 
@@ -131,8 +131,8 @@ $ ng serve --host 0.0.0.0
 ```json
 // body
 {
-    Barcode: string,
-    CreatedBy: int,
-    StatusId: int
+    "Barcode": "string",
+    "CreatedBy": "int",
+    "StatusId": "int"
 }
 ```
